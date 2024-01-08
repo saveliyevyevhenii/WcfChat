@@ -44,7 +44,22 @@ namespace WcfChat
 
         public void SendMessage(string message, int id)
         {
-            throw new NotImplementedException();
+            foreach(var item in users) 
+            {
+                string answer = $"{DateTime.UtcNow:s}";
+
+                var user = users.FirstOrDefault(x => x.Id == id);
+
+                if (user != null)
+                {
+                    answer += $": {user.Name} ";
+                }
+
+                answer += message;
+
+                var callback = item.OperationCtx?.GetCallbackChannel<IChatServiceCallback>();
+                callback?.MessageCallback(answer);
+            }
         }
     }
 }
