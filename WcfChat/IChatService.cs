@@ -11,7 +11,7 @@ namespace WcfChat
     public interface IChatService
     {
         [OperationContract]
-        int Connect();
+        int Connect(string name);
 
         [OperationContract]
         void Disconnect(int id);
