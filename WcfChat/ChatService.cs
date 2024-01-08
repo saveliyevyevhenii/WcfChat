@@ -24,7 +24,7 @@ namespace WcfChat
 
             nextId++;
 
-            SendMessage($"{user.Name} connected to the chat!");
+            SendMessage($"{user.Name} connected to the chat!", 0);
 
             users.Add(user);
 
@@ -38,11 +38,11 @@ namespace WcfChat
             if (user != null)
             {
                 users.Remove(user);
-                SendMessage($"{user.Name} disconnected from chat!");
+                SendMessage($"{user.Name} disconnected from chat!", 0);
             }
         }
 
-        public void SendMessage(string message)
+        public void SendMessage(string message, int id)
         {
             throw new NotImplementedException();
         }
