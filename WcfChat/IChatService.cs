@@ -7,10 +7,22 @@ using System.Text;
 
 namespace WcfChat
 {
-    [ServiceContract]
+    [ServiceContract(CallbackContract = typeof(IChatServiceCallback))]
     public interface IChatService
     {
         [OperationContract]
-        void DoWork();
+        int Connect();
+
+        [OperationContract]
+        void Disconnect(int id);
+
+        [OperationContract(IsOneWay = true)]
+        void SendMessage(string message);
+    }
+
+    public interface IChatServiceCallback
+    {
+        [OperationContract]
+        void MessageCallback(string message);
     }
 }
