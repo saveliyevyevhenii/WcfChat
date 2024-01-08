@@ -22,7 +22,7 @@ namespace WcfChat
 
     public interface IChatServiceCallback
     {
-        [OperationContract]
+        [OperationContract(IsOneWay = true)]
         void MessageCallback(string message);
     }
 }
