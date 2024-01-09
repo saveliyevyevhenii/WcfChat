@@ -73,5 +73,28 @@ namespace ChatClient
                 DisconnectUser();
             }
         }
+
+        private void SendMessage()
+        {
+            if (Client != null)
+            {
+                Client.SendMessage(tbMessage.Text, Id);
+
+                tbMessage.Text = null;
+            }
+        }
+
+        private void tbMessage_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.Key == Key.Enter)
+            {
+                SendMessage();
+            }
+        }
+
+        private void btSend_Click(object sender, RoutedEventArgs e)
+        {
+            SendMessage();
+        }
     }
 }
