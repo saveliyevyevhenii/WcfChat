@@ -7,6 +7,11 @@
         mc:Ignorable="d"
         Title="MainWindow" Height="450" Width="800">
     <Grid>
-        
+        <TextBox x:Name="tbUsername" HorizontalAlignment="Left" Margin="335,10,0,0" TextWrapping="Wrap" Text="Username" VerticalAlignment="Top" Width="305" Height="22"/>
+        <Button Content="Connect" HorizontalAlignment="Left" Margin="659,10,0,0" VerticalAlignment="Top" Height="22" Width="111"/>
+        <ListBox x:Name="lbChat" d:ItemsSource="{d:SampleData ItemCount=5}" Margin="10,53,10,154"/>
+        <TextBox x:Name="tbMessage" HorizontalAlignment="Center" Margin="0,285,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="762" Height="80"/>
+        <Button Content="Send" HorizontalAlignment="Left" Margin="266,370,0,0" VerticalAlignment="Top" Height="35" Width="208"/>
+
     </Grid>
 </Window>
