@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:ChatClient"
         mc:Ignorable="d"
-        Title="MainWindow" Height="450" Width="800" Loaded="Window_Loaded" Closing="Window_Closing">
+        Title="MainWindow" Height="450" Width="800" Closing="Window_Closing">
     <Grid>
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="27*"/>
@@ -14,8 +14,8 @@
         <TextBox x:Name="tbUsername" HorizontalAlignment="Left" Margin="281,10,0,0" TextWrapping="Wrap" Text="Username" VerticalAlignment="Top" Width="305" Height="22" Grid.Column="1"/>
         <Button x:Name="btConnDisconn" Click="Button_Click" Content="Connect" HorizontalAlignment="Left" Margin="605,10,0,0" VerticalAlignment="Top" Height="22" Width="111" Grid.Column="1"/>
         <ListBox x:Name="lbChat" d:ItemsSource="{d:SampleData ItemCount=5}" Margin="10,53,10,154" Grid.ColumnSpan="2"/>
-        <TextBox x:Name="tbMessage" HorizontalAlignment="Left" Margin="19,285,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="762" Height="80" Grid.ColumnSpan="2"/>
-        <Button Content="Send" HorizontalAlignment="Left" Margin="212,370,0,0" VerticalAlignment="Top" Height="35" Width="208" Grid.Column="1"/>
+        <TextBox x:Name="tbMessage" HorizontalAlignment="Left" Margin="19,285,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="762" Height="80" Grid.ColumnSpan="2" KeyDown="tbMessage_KeyDown"/>
+        <Button x:Name="btSend" Content="Send" HorizontalAlignment="Left" Margin="212,370,0,0" VerticalAlignment="Top" Height="35" Width="208" Grid.Column="1" Click="btSend_Click"/>
 
     </Grid>
 </Window>
