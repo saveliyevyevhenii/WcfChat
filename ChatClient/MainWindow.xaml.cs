@@ -27,11 +27,6 @@ namespace ChatClient
             InitializeComponent();
         }
 
-        private void Window_Loaded(object sender, RoutedEventArgs e)
-        {
-            Client = new ChatServiceClient(new System.ServiceModel.InstanceContext(this));
-        }
-
         private void UpdateUIState(bool isConnected)
         {
             tbUsername.IsEnabled = !isConnected;
@@ -41,6 +36,7 @@ namespace ChatClient
 
         private void ConnectUser()
         {
+            Client = new ChatServiceClient(new System.ServiceModel.InstanceContext(this));
             Id = Client.Connect(tbUsername.Text);
             UpdateUIState(true);
         }
@@ -48,6 +44,7 @@ namespace ChatClient
         private void DisconnectUser()
         {
             Client.Disconnect(Id);
+            Client = null;
 
             UpdateUIState(false);
         }
