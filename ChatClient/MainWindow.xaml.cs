@@ -15,14 +15,42 @@ using System.Windows.Shapes;
 
 namespace ChatClient
 {
-    /// <summary>
-    /// Логика взаимодействия для MainWindow.xaml
-    /// </summary>
     public partial class MainWindow : Window
     {
+        private bool IsConnected { get; set; } = false;
+
         public MainWindow()
         {
             InitializeComponent();
+        }
+
+        private void UpdateUIState(bool isConnected)
+        {
+            tbUsername.IsEnabled = !isConnected;
+            btConnDisconn.Content = isConnected ? "Disconnect" : "Connect";
+            IsConnected = isConnected;
+        }
+
+        private void ConnectUser()
+        {
+            UpdateUIState(true);
+        }
+
+        private void DisconnectUser()
+        {
+            UpdateUIState(false);
+        }
+
+        private void Button_Click(object sender, RoutedEventArgs e)
+        {
+            if (IsConnected)
+            {
+                DisconnectUser();
+            }
+            else
+            {
+                ConnectUser();
+            }
         }
     }
 }
