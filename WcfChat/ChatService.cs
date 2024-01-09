@@ -24,7 +24,7 @@ namespace WcfChat
 
             nextId++;
 
-            SendMessage($"{user.Name} connected to the chat!", 0);
+            SendMessage($": {user.Name} connected to the chat!", 0);
 
             users.Add(user);
 
@@ -38,7 +38,7 @@ namespace WcfChat
             if (user != null)
             {
                 users.Remove(user);
-                SendMessage($"{user.Name} disconnected from chat!", 0);
+                SendMessage($": {user.Name} disconnected from chat!", 0);
             }
         }
 
@@ -46,7 +46,7 @@ namespace WcfChat
         {
             foreach(var item in users) 
             {
-                string answer = $"{DateTime.UtcNow:s}";
+                string answer = DateTime.Now.ToShortTimeString();
 
                 var user = users.FirstOrDefault(x => x.Id == id);
 
