@@ -15,9 +15,10 @@ using System.Windows.Shapes;
 
 namespace ChatClient
 {
-    public partial class MainWindow : Window
+    public partial class MainWindow : Window, ChatService.IChatServiceCallback
     {
         private bool IsConnected { get; set; } = false;
+        ChatService.ChatServiceClient Client;
 
         public MainWindow()
         {
@@ -51,6 +52,11 @@ namespace ChatClient
             {
                 ConnectUser();
             }
+        }
+
+        public void MessageCallback(string message)
+        {
+            lbChat.Items.Add(message);
         }
     }
 }
